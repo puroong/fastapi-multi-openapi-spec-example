@@ -8,7 +8,8 @@
     <body>
 
         <!-- 시작: OPENAPI 앱 선책할 수 있음  -->
-        <select id="app-names-select" name="app-names" onchange="window.location.search = `?name=${this.value}`">
+        <input id="feature-version-input" type="text" value="{{feature_version}}" placeholder="feature version">
+        <select id="app-names-select" name="app-names" onchange="window.location.search = `?name=${this.value}&feature_version=${document.querySelector('#feature-version-input').value}`">
             {% for app_name in available_app_names %}
                 {% if app_name == selected_app_name %}
                     <option value="{{app_name}}" selected>{{app_name}}</option>
